@@ -8,14 +8,18 @@ describe('Test the api to get data', () => {
       expect(typeof value).toBe('string');
       done();
     };
-    api(url, dataCheck);
+    api.getUrl1(url, dataCheck);
   });
   test('responds with success statusCode', (done) => {
-    const url = 'https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findBookById/2';
-    const dataCheck = (value) => {
+    const book = {
+      Author: 'J K Rowling',
+      id: 4,
+      Name: 'Harry Potter and the Goblet of Fire (Harry Potter, #4)',
+    };
+    const dataCheck = (id, value) => {
       expect(typeof value).toBe('string');
       done();
     };
-    api(url, dataCheck);
+    api.getUrl2(book, dataCheck);
   });
 });

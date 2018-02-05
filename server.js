@@ -1,11 +1,13 @@
 const Hapi = require('hapi');
-const dataApi = require('./getDataFromApi');
+const Route = require('./routes');
 
 const server = new Hapi.Server();
 server.connection({
   port: 3001,
   host: 'localhost',
 });
+
+server.route(Route);
 
 if (!module.parent) {
   server.start((err) => {

@@ -1,4 +1,5 @@
 const Hapi = require('hapi');
+const dataApi = require('./getDataFromApi');
 
 const server = new Hapi.Server();
 server.connection({
